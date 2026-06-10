@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Matrix</title>
+
+    ```
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Consolas, monospace;
+        }
+        
+        body {
+            background: #000;
+            color: #00ff41;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .contenedor {
+            width: 450px;
+            background: rgba(0, 0, 0, .9);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px #00ff41;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ff41;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #000;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .botones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 12px;
+            background: #000;
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 18px;
+        }
+        
+        button:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 15px #00ff41;
+        }
+        
+        #resultado {
+            margin-top: 25px;
+            font-size: 24px;
+            text-shadow: 0 0 10px #00ff41;
+        }
+    </style>
+    ```
+
+</head>
+
+<body>
+
+    ```
+    <div class="contenedor">
+
+        <h1>CALCULADORA</h1>
+
+        <input type="number" id="num1" placeholder="Primer número">
+
+        <input type="number" id="num2" placeholder="Segundo número">
+
+        <div class="botones">
+            <button onclick="calcular('sumar')">SUMAR</button>
+
+            <button onclick="calcular('restar')">RESTAR</button>
+
+            <button onclick="calcular('multiplicar')">MULTIPLICAR</button>
+
+            <button onclick="calcular('dividir')">DIVIDIR</button>
+        </div>
+
+        <div id="resultado">
+            Resultado: 0
+        </div>
+
+    </div>
+
+    <script src="operaciones.js"></script>
+
+    <script>
+        function calcular(operacion) {
+
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+
+            let resultado = 0;
+
+            try {
+
+                switch (operacion) {
+
+                    case "sumar":
+                        resultado = sumar(a, b);
+                        break;
+
+                    case "restar":
+                        resultado = restar(a, b);
+                        break;
+
+                    case "multiplicar":
+                        resultado = multiplicar(a, b);
+                        break;
+
+                    case "dividir":
+                        resultado = dividir(a, b);
+                        break;
+                }
+
+                document.getElementById("resultado").innerHTML =
+                    "Resultado: " + resultado;
+
+            } catch (error) {
+
+                document.getElementById("resultado").innerHTML =
+                    error.message;
+
+            }
+        }
+    </script>
+    ```
+
+</body>
+
+</html>
