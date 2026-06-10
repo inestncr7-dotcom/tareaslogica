@@ -73,6 +73,18 @@
             box-shadow: 0 0 15px #00ff41;
         }
         
+        .ac {
+            background: #b30000;
+            color: white;
+            border: 1px solid #ff3333;
+        }
+        
+        .ac:hover {
+            background: #ff3333;
+            color: white;
+            box-shadow: 0 0 15px #ff3333;
+        }
+        
         #resultado {
             margin-top: 25px;
             font-size: 24px;
@@ -95,6 +107,7 @@
         <input type="number" id="num2" placeholder="Segundo número">
 
         <div class="botones">
+
             <button onclick="calcular('sumar')">SUMAR</button>
 
             <button onclick="calcular('restar')">RESTAR</button>
@@ -102,6 +115,9 @@
             <button onclick="calcular('multiplicar')">MULTIPLICAR</button>
 
             <button onclick="calcular('dividir')">DIVIDIR</button>
+
+            <button class="ac" onclick="limpiar()">AC</button>
+
         </div>
 
         <div id="resultado">
@@ -148,12 +164,23 @@
 
                 document.getElementById("resultado").innerHTML =
                     error.message;
-
             }
+        }
+
+        function limpiar() {
+
+            document.getElementById("num1").value = "";
+
+            document.getElementById("num2").value = "";
+
+            document.getElementById("resultado").innerHTML =
+                "Resultado: 0";
         }
     </script>
     ```
 
 </body>
+
+</html>
 
 </html>
